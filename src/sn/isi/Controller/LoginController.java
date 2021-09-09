@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import sn.isi.dao.IUtilisateur;
 import sn.isi.dao.UtilisateurImpl;
@@ -48,6 +49,7 @@ public class LoginController extends HttpServlet {
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
+			
 			Utilisateur user = utilisateurdao.logon(email, password);
 			
 			if(user != null) {
